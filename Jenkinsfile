@@ -30,7 +30,7 @@ pipeline {
 
           stage("MVN Build"){
             steps {
-                sh """mvn build """
+                sh """mvn build -e """
                 
             }
         }
