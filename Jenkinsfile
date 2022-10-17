@@ -24,7 +24,7 @@ pipeline {
         
         stage("MVN Clean"){
             steps {
-                sh """mvn clean """
+                sh """mvn clean -e """
                 
             }
         }
@@ -40,6 +40,16 @@ pipeline {
             steps {
                 sh """mvn install """
                 
+            }
+        }
+
+        stage('sonar'){
+            steps {
+                script{ withSonarQubeEnv('SonarQube') {
+                     sh "mvn sonar:sonar -DskipTests" 
+                 }
+               
+                }
             }
         }
         
