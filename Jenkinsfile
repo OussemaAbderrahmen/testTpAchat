@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh """mvn -version  """
                 sh """java -version """
+                sh """mvn package -e """
             }
         }
         
