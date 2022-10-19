@@ -98,7 +98,7 @@ public class FactureServiceImpl implements IFactureService {
 
 	@Override
 	public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
-		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
+		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(new Fournisseur());
 		return (List<Facture>) fournisseur.getFactures();
 	}
 
