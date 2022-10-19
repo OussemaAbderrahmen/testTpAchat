@@ -37,7 +37,7 @@ public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
 
 	@Override
 	public SecteurActivite retrieveSecteurActivite(Long id) {
-		return secteurActiviteRepository.findById(id).get();
+		return secteurActiviteRepository.findById(id).orElse(null);
 		
 	}
 
