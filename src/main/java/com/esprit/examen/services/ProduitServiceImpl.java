@@ -67,5 +67,11 @@ public class ProduitServiceImpl implements IProduitService {
 
 	}
 
+	@Override
+	public float getRevenuBrutProduit(Long idProduit, Date startDate, Date endDate) {
+		
+		return 0;
+	}
+
 
 }
