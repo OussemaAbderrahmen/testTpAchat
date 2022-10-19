@@ -24,8 +24,8 @@ public class ProduitRestController {
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
 	public List<Produit> getProduits() {
-		List<Produit> list = produitService.retrieveAllProduits();
-		return list;
+		return produitService.retrieveAllProduits();
+		
 	}
 
 	@GetMapping("/retrieve-produit/{produit-id}")
@@ -39,8 +39,8 @@ public class ProduitRestController {
 	@PostMapping("/add-produit")
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit p) {
-		Produit produit = produitService.addProduit(p);
-		return produit;
+		return produitService.addProduit(p);
+		
 	}
 
 
@@ -71,7 +71,7 @@ public class ProduitRestController {
 	 * detailFacture du produit envoyé en paramètre )
 	 */
 	
-/*	@GetMapping(value = "/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}")
+	/*@GetMapping(value = "/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}")
 	public float getRevenuBrutProduit(@PathVariable("idProduit") Long idProduit,
 			@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
 			@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {

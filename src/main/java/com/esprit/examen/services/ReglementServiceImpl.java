@@ -30,15 +30,15 @@ public class ReglementServiceImpl implements IReglementService {
 
 	@Override
 	public Reglement retrieveReglement(Long id) {
-		Reglement reglement = reglementRepository.findById(id).orElse(null);
+		return reglementRepository.findById(id).orElse(null);
 		
-		return reglement;
+	
 	}
 
 	@Override
 	public List<Reglement> retrieveReglementByFacture(Long idFacture) {
-		List<Reglement> reglements= reglementRepository.retrieveReglementByFacture(idFacture);
-		return reglements;
+		return reglementRepository.retrieveReglementByFacture(idFacture);
+		
 		
 //		ou bien(Sans JPQL)
 //		Facture f= factureRepository.findById(idFacture).get();
