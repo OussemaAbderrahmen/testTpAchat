@@ -71,10 +71,14 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 		<dependency>
-    <groupId>org.jacoco</groupId> 
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.6</version>
-</dependency>
+    		<groupId>org.jacoco</groupId> 
+    		<artifactId>jacoco-maven-plugin</artifactId>
+    		<version>0.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId> 
+    		<artifactId>mockito-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -89,23 +93,23 @@
 				<version>3.1.0</version>
 			</plugin>
 			<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.8.6</version>
-    <executions>
-        <execution>
-            <id>jacoco-initialize</id>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>jacoco-site</id>
-            <phase>package</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
+   					 <groupId>org.jacoco</groupId>
+   					 <artifactId>jacoco-maven-plugin</artifactId>
+   					 <version>0.8.6</version>
+   			 <executions>
+      			  <execution>
+      		      <id>jacoco-initialize</id>
+      				      <goals>
+       			         <goal>prepare-agent</goal>
+        			    </goals>
+       		 </execution>
+      		  <execution>
+         			   <id>jacoco-site</id>
+         			   <phase>package</phase>
+         			   <goals>
+          		      <goal>report</goal>
+          			  </goals>
+       		 </execution>
     </executions>
 </plugin>
 		</plugins>
