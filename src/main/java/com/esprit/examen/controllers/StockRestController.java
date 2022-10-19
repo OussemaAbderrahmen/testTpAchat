@@ -65,10 +65,10 @@ public class StockRestController {
 	// @Scheduled(fixedRate = 60000)
 	// @Scheduled(fixedDelay = 60000)
 	//@Scheduled(cron = "*/60 * * * * *")
-	//@GetMapping("/retrieveStatusStock")
-//	@ResponseBody
-//	public void retrieveStatusStock() {
-//		stockService.retrieveStatusStock();
-//	}
+	@GetMapping("/retrieveStatusStock")
+	@ResponseBody
+	public void retrieveStatusStock() {
+		stockService.retrieveStatusStock();
+	}
 
 }
