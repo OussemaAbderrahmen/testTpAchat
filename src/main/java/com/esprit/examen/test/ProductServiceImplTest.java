@@ -21,7 +21,7 @@ import com.esprit.examen.services.IProduitService;
 
 
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
 public class ProductServiceImplTest {
 
