@@ -52,6 +52,6 @@ public class ProductServiceImplTest {
 	@Test
 	public void testRetrieveAllProducts(){
 		List<Produit> produits = productService.retrieveAllProduits();
-		assertEquals(1,produits.size());
+		assertEquals(4,produits.size());
 	}
 }
