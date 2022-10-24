@@ -56,20 +56,17 @@ pipeline {
          stage("Upload War to nexus"){
             steps {
                nexusArtifactUploader artifacts: [
-                [
-                    artifactId: 'tpAchatProject', 
-                    classifier: '',
-                    file: 'target/tpAchatProject-1.0.0.war', 
-                    type: 'war'
-                    ]
-                 ], 
-                    credentialsId: 'Nexus',
+                [artifactId: 'tpAchatProject',
+                 classifier: '',
+                  file: 'target/tpAchatProject-1.0.0.war',
+                   type: 'war']],
+                    credentialsId: 'Nexus', 
                     groupId: 'com.esprit.examen',
-                    nexusUrl: 'http://192.168.1.7',
-                    nexusVersion: 'nexus2',
-                    protocol: 'http',
-                    repository: 'http://192.168.1.7:8081/repository/tpAchatProjet/',
-                    version: '1.0.0'
+                     nexusUrl: 'http://192.168.1.7:8081',
+                      nexusVersion: 'nexus2',
+                       protocol: 'http',
+                        repository: 'http://192.168.1.7:8081/repository/tpAchatProjet/',
+                         version: '1.0.0'
                 
             }
         }
