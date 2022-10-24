@@ -60,7 +60,7 @@ pipeline {
                  classifier: '',
                   file: 'target/tpAchatProject-1.0.0.war',
                    type: 'war']],
-                    credentialsId: 'nexus3', 
+                    credentialsId: 'Nexus', 
                     groupId: 'com.esprit.examen',
                      nexusUrl: 'http://192.168.1.7:8081',
                       nexusVersion: 'nexus3',
