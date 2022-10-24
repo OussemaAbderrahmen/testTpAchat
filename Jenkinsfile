@@ -58,7 +58,7 @@ pipeline {
                nexusArtifactUploader artifacts: [
                 [artifactId: 'tpAchatProject',
                  classifier: '',
-                  file: 'target/tpAchatProject-1.0.0.war',
+                  file: 'target/tpAchatProject-1.0.jar',
                    type: 'war']],
                     credentialsId: 'Nexus', 
                     groupId: 'com.esprit.examen',
