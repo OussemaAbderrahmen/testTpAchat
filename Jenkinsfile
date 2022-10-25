@@ -43,34 +43,23 @@ pipeline {
             }
         }
 
-        stage('sonar'){
-            steps {
-                script{ withSonarQubeEnv('SonarQube') {
-                     sh """mvn sonar:sonar -DskipTests""" 
-                 }
-               
-                }
-            }
-        }
+       
 
          stage("Upload War to nexus"){
             steps {
                nexusArtifactUploader artifacts: [
                 [
-                    artifactId: 'tpAchatProject', 
+                    artifactId: 'tpAchatProject',
                     classifier: '',
-                    file: 'target/tpAchatProject-1.0.jar', 
-                    type: 'war'
-                    ]
-                 ], 
-                    credentialsId: 'Nexus',
-                    groupId: 'com.esprit.examen',
-                    nexusUrl: 'http://192.168.1.7:8081',
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    repository: 'tpAchatProjet',
-                    version: '1.0.0'
-                
+                    file: 'target/tpAchatProjet-1.0.jar', 
+                    type: 'jar']], 
+                    credentialsId: 'nexus3', 
+                    groupId: 'com.esprit.examen', 
+                    nexusUrl: '192.168.1.7:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'tpAchatProjet', 
+                    version: '1.0'
             }
         }
 
