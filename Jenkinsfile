@@ -43,7 +43,15 @@ pipeline {
             }
         }
 
-       
+        /*stage('sonar'){
+            steps {
+                script{ withSonarQubeEnv('SonarQube') {
+                     sh """mvn sonar:sonar -DskipTests""" 
+                 }
+               
+                }
+            }
+        }*/
 
          stage("Upload War to nexus"){
             steps {
