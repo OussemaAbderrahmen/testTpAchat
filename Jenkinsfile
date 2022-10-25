@@ -55,16 +55,20 @@ pipeline {
 
          stage("Upload War to nexus"){
             steps {
-               nexusArtifactUploader artifacts: [[artifactId: 'tpAchatProject', 
+               nexusArtifactUploader artifacts: [
+                [
+                artifactId: 'tpAchatProject', 
                classifier: '', 
                file: 'target/tpAchatProject-1.0.jar', 
-               type: 'jar']], 
+               type: 'jar'
+               ]
+               ], 
                credentialsId: 'nexus3', 
                groupId: 'com.esprit.examen', 
-               nexusUrl: '192.168.1.7', 
+               nexusUrl: '192.168.1.7:8081', 
                nexusVersion: 'nexus3', 
                protocol: 'http', 
-               repository: 'http://192.168.1.7:8081/repository/tpAchatProjet/', 
+               repository: 'tpAchatProjet', 
                version: '1.0'
             }
         }
