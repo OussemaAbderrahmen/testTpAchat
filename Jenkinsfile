@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-         stage("MVN build"){
+         stage("MVN Compile"){
             steps {
                 sh """mvn compile -e """
                 
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        /*stage('sonar'){
+        stage('sonar'){
             steps {
                 script{ withSonarQubeEnv('SonarQube') {
                      sh """mvn sonar:sonar -DskipTests""" 
@@ -51,26 +51,30 @@ pipeline {
                
                 }
             }
-        }*/
+        }
+
+      
 
          stage("Upload War to nexus"){
-            steps {
-               nexusArtifactUploader artifacts: [
-                [
-                artifactId: 'tpAchatProject', 
-               classifier: '', 
-               file: 'target/tpAchatProject-1.0.jar', 
-               type: 'jar'
-               ]
-               ], 
-               credentialsId: 'nexus3', 
+            steps{
+                script{
+                    def mavenPom = readMavenPom file:'pom.xml'
+                
+        nexusArtifactUploader artifacts: [
+             [artifactId: 'tpAchatProject',
+                    classifier: '',
+                    file: "target/tpAchatProject-${mavenPom.version}.jar",
+                     type: 'jar'],
+            ],  
+                credentialsId: 'nexus3', 
                groupId: 'com.esprit.examen', 
                nexusUrl: '192.168.1.7:8081', 
                nexusVersion: 'nexus3', 
                protocol: 'http', 
-               repository: 'tpAchatProjet', 
-               version: '1.1'
+               repository: 'tpAchatProjet',
+                version: "${mavenPom.version}"
             }
+        }
         }
 
         
