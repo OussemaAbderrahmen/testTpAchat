@@ -55,7 +55,7 @@ pipeline {
 
       
 
-         stage("Upload War to nexus"){
+         stage("Upload JAR to Nexus"){
             steps{
                 script{
                     def mavenPom = readMavenPom file:'pom.xml'
