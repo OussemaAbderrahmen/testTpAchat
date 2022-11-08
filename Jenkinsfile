@@ -68,7 +68,7 @@ pipeline {
             ],  
                 credentialsId: 'nexus3', 
                groupId: 'com.esprit.examen', 
-               nexusUrl: '192.168.1.128:8081', 
+               nexusUrl: '192.168.1.183:8081', 
                nexusVersion: 'nexus3', 
                protocol: 'http', 
                repository: 'tpAchatProjet',
